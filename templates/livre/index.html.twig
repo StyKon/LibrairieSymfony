@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre index{% endblock %}
+
+{% block body %}
+
+
+<div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Livre</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="{{ path('livre_index') }}"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="{{ path('livre_index') }}">Livre</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">index</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="{{ path('livre_new') }}" class="btn btn-sm btn-neutral">Create new Livre</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+ <div class="container-fluid mt--6">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <h3 class="mb-0">Liste Livre</h3>
+
+            </div>
+            <div class="table-responsive py-4">
+              <table class="table table-flush" id="datatable-basic">
+                <thead class="thead-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Titre</th>
+                    <th>NbPages</th>
+                    <th>DateEdition</th>
+                    <th>NbExemplaires</th>
+                    <th>Prix</th>
+                    <th>Isbn</th>
+                    <th>actions</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>Titre</th>
+                    <th>NbPages</th>
+                    <th>DateEdition</th>
+                    <th>NbExemplaires</th>
+                    <th>Prix</th>
+                    <th>Isbn</th>
+                    <th>actions</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+
+        {% for livre in livres %}
+            <tr>
+                <td>{{ livre.id }}</td>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.nbPages }}</td>
+                <td>{{ livre.dateEdition ? livre.dateEdition|date('Y-m-d') : '' }}</td>
+                <td>{{ livre.nbExemplaires }}</td>
+                <td>{{ livre.prix }}</td>
+                <td>{{ livre.isbn }}</td>
+                <td>
+<a    href="{{ path('livre_show', {'id': livre.id}) }}" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Show livre">
+
+                <i class="far fa-eye"></i>
+                </a>
+                <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit livre">
+                 <i class="fas fa-user-edit"></i>
+                </a>
+                
+    {{ include('livre/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

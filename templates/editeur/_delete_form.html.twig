@@ -1,0 +1,5 @@
+<form  style=" display:inline-block;" method="post" action="{{ path('editeur_delete', {'id': editeur.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ editeur.id) }}">
+     <button class="btn btn-google-plus btn-icon-only rounded-circle" style="width: 23px; height: 23px; color:#c0c0c0; border-color:transparent;background-color:transparent;box-shadow:none;"><span class="btn-inner--icon"><i class="fas fa-trash"></i></span></button>
+</form>

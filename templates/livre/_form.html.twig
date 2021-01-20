@@ -1,0 +1,104 @@
+{{ form_start(form) }}
+   
+
+<div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Livre</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="{{ path('livre_index') }}"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="{{ path('livre_index') }}">Livre</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ ActLab|default('Add') }}</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="{{ path('livre_index') }}" class="btn btn-sm btn-neutral">Back To List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+       <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col">
+          <div class="card-wrapper">
+            <!-- Custom form validation -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header">
+                <h3 class="mb-0">{{ ActionLabel|default('Add Livre') }}</h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+   <div class="form-row">
+                    <div class="col-md-4 mb-3">
+<label class="form-control-label" for="validationCustomUsername">Titre</label>
+                     
+    {{ form_widget(form.titre, { 'attr': {'class': 'form-control','placeholder':'Titre'} }) }}
+   
+    </div>
+     
+                    <div class="col-md-4 mb-3">
+      <label class="form-control-label" for="validationCustomUsername">NbPages</label>
+                                   
+    {{ form_widget(form.nbPages, { 'attr': {'class': 'form-control','placeholder':'NbPages'} }) }}
+    </div>
+       
+                    <div class="col-md-4 mb-3">
+                    <label class="form-control-label" for="validationCustomUsername">DateEdition</label>
+                     
+    {{ form_widget(form.dateEdition, { 'attr': {'class': 'form-control','placeholder':'DateEdition'} }) }}
+   </div></div>
+   <div class="form-row">
+                    <div class="col-md-4 mb-3">
+<label class="form-control-label" for="validationCustomUsername">NbExemplaires</label>
+                     
+    {{ form_widget(form.nbExemplaires, { 'attr': {'class': 'form-control','placeholder':'NbExemplaires'} }) }}
+   
+    </div>
+     
+                    <div class="col-md-4 mb-3">
+      <label class="form-control-label" for="validationCustomUsername">Prix</label>
+                                   
+    {{ form_widget(form.prix, { 'attr': {'class': 'form-control','placeholder':'Prix'} }) }}
+    </div>
+       
+                    <div class="col-md-4 mb-3">
+                    <label class="form-control-label" for="validationCustomUsername">Isbn</label>
+                     
+    {{ form_widget(form.isbn, { 'attr': {'class': 'form-control','placeholder':'Isbn'} }) }}
+   </div></div>
+ 
+   <div class="form-row">
+                    <div class="col-md-4 mb-3">
+<label class="form-control-label" for="validationCustomUsername">Editeur</label>
+                     
+    {{ form_widget(form.Editeur, { 'attr': {'class': 'form-control','placeholder':'Editeur'} }) }}
+   
+    </div>
+     
+                    <div class="col-md-4 mb-3">
+      <label class="form-control-label" for="validationCustomUsername">Categorie</label>
+                                   
+    {{ form_widget(form.Categorie, { 'attr': {'class': 'form-control','placeholder':'Categorie'} }) }}
+    </div>
+       
+                    <div class="col-md-4 mb-3">
+                    <label class="form-control-label" for="validationCustomUsername">Auteur</label>
+                     
+    {{ form_widget(form.Auteur, { 'attr': {'class': 'form-control','placeholder':'Auteur'} }) }}
+   </div></div>
+ 
+    <button class="btn btn-primary" >{{ button_label|default('Add Livre') }}</button>
+    
+{{ form_end(form) }}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

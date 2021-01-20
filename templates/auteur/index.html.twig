@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur index{% endblock %}
+
+{% block body %}
+
+<div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Auteur</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="{{ path('auteur_index') }}"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="{{ path('auteur_index') }}">Auteur</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">index</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="{{ path('auteur_new') }}" class="btn btn-sm btn-neutral">Create new Auteur</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+ <div class="container-fluid mt--6">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <h3 class="mb-0">Liste Auteur</h3>
+
+            </div>
+            <div class="table-responsive py-4">
+              <table class="table table-flush" id="datatable-basic">
+                <thead class="thead-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Biographie</th>
+                    <th>actions</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Biographie</th>
+                    <th>actions</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+
+        {% for auteur in auteurs %}
+            <tr>
+                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.nom }}</td>
+                <td>{{ auteur.prenom }}</td>
+                <td>{{ auteur.biographie }}</td>
+                <td>
+            
+                <a    href="{{ path('auteur_show', {'id': auteur.id}) }}" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Show Auteur">
+
+                <i class="far fa-eye"></i>
+                </a>
+                  <a href="{{ path('auteur_edit', {'id': auteur.id}) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit Auteur">
+                 <i class="fas fa-user-edit"></i>
+                 
+                </a>
+  {{ include('auteur/_delete_form.html.twig') }}
+  
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+  
+{% endblock %}
