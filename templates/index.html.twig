@@ -1,2 +1,5 @@
 {% include('base.html.twig') %}
 
+ {% if not app.user %}
+ {{ include('user/index.html.twig') }}
+{% endif %}

@@ -26,8 +26,10 @@
         {% endblock %}
     </head>
     <body id="page-top">
+    {% if app.user %}
       {% include('nav_bar.html.twig') %}
-      {% include('scrol_bar.html.twig') %}
+      
+      {% include('scrol_bar.html.twig') %} {% endif %}
         {% block body %}
       
    
@@ -36,6 +38,7 @@
 
         {% endblock %}
         </div>
+       
         {% block javascripts %}
          <!-- Argon Scripts -->
   <!-- Core -->
